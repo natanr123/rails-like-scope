@@ -1,7 +1,7 @@
 function addToScope(func, context) {
 
-    context[func.name] = () => {
-        context.___currentData = func(context.___currentData);
+    context[func.name] = (...args) => {
+        context.___currentData = func(context.___currentData, ...args);
         return context;
     };
 
