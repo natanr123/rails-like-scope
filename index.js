@@ -26,5 +26,22 @@ function withScope(theClass) {
     };
     return theClass;
 }
+// @TODO finish this function
+function withScopeArr(theClass) {
+    theClass.scope = ()=>{
+        class newClass {
+            scope(arrNames) {
+                const context = localInitScope({});
+                for(let i=0; i<=arrNames.length; i++) {
+                    localAddToScope(theClass[arrNames[i]],null,context);
+                }
+            }
+
+        }
+
+        return new newClass();
+    }
+
+}
 
 module.exports = { withScope };
